@@ -29,10 +29,10 @@ def main():
             time.sleep(60)
 
 def fedora_update_command(tvm):
-      os.system("qvm-run -a "+ tvm.name + " 'sudo dnf -y upgrade ; sudo dnf clean all; sudo poweroff'")
+      tvm.run('sudo dnf -y upgrade ; sudo dnf clean all; sudo poweroff', autostart = True, verbose = True, user = None, notify_function = None, passio = False, localcmd = None, gui = False, filter_esc = False )
 
 def debian_update_command(tvm):
-      os.system("qvm-run -a "+ tvm.name + " 'sudo apt-get update; sudo apt-get -y upgrade ; sudo apt-get autoremove; sudo apt-get autoclean; sudo poweroff'")
+      tvm.run('sudo apt-get update; sudo apt-get -y upgrade ; sudo apt-get autoremove; sudo apt-get autoclean; sudo poweroff' , autostart = True, verbose = True, user = None, notify_function = None, passio = False, localcmd = None, gui = False, filter_esc = False )
 
 
 main()
